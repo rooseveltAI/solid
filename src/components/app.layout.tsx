@@ -5,12 +5,14 @@ import {
   chakra,
   Image,
   Icon,
+  Text,
   Stack,
   Container,
   Button,
   Link,
   IconButton,
-  Grid
+  Grid,
+  Divider
 } from '@chakra-ui/react'
 import { AuthContext } from 'hooks/auth'
 import { Global, css } from '@emotion/react'
@@ -41,6 +43,19 @@ const Layout = ({ children, ...props }: AppLayoutProps) => {
           ::-webkit-scrollbar-thumb {
             backgroundcolor: rgba(255, 255, 255, 12%);
           }
+
+          audio {
+            background: none;
+            outline: none;
+            color: #fff;
+            width: 100%;
+          }
+          audio::-webkit-media-controls-enclosure {
+            background: none;
+            outline: none;
+            color: #fff;
+            width: 100%;
+          }
         `}
       />
 
@@ -55,6 +70,7 @@ const Layout = ({ children, ...props }: AppLayoutProps) => {
           }}
           minH="100vh"
         >
+          {/* Background */}
           <Stack
             bgImage="url(/images/bg-gradient.svg)"
             bgRepeat="no-repeat"
@@ -77,18 +93,97 @@ const Layout = ({ children, ...props }: AppLayoutProps) => {
             backdropFilter="blur(27px)"
             display={{ base: 'none', sm: 'none', lg: 'block' }}
           >
-            <Stack h="100%"></Stack>
+            <Stack h="100%">
+              <Stack
+                px={{ base: '', md: '24px' }}
+                py={{ base: '', md: '24px' }}
+              >
+                <Image
+                  src="/logo-green.svg"
+                  alt="logo"
+                  w={{ base: '', md: '124px' }}
+                  pointerEvents="none"
+                  userSelect="none"
+                />
+              </Stack>
+              <Stack
+                px={{ base: '', md: '16px' }}
+                pt={{ base: '', md: '4px' }}
+                pb={{ base: '', md: '12px' }}
+              >
+                <Button
+                  variant="ghost"
+                  justifyContent="flex-start"
+                  color="#BDC1C6"
+                  fontWeight="500"
+                  leftIcon={
+                    <i
+                      className="ri-home-3-line ri-xl"
+                      style={{ marginRight: 4 }}
+                    />
+                  }
+                >
+                  Home
+                </Button>
+                <Button
+                  variant="ghost"
+                  justifyContent="flex-start"
+                  color="#BDC1C6"
+                  fontWeight="500"
+                  leftIcon={
+                    <i
+                      className="ri-heart-3-line ri-xl"
+                      style={{ marginRight: 4 }}
+                    />
+                  }
+                >
+                  Favourites
+                </Button>
+                <Button
+                  variant="ghost"
+                  justifyContent="flex-start"
+                  color="#BDC1C6"
+                  fontWeight="500"
+                  leftIcon={
+                    <i
+                      className="ri-rss-line ri-xl"
+                      style={{ marginRight: 4 }}
+                    />
+                  }
+                >
+                  Subscriptions
+                </Button>
+              </Stack>
+              <Divider
+                border="0.5px solid"
+                borderColor="rgba(255, 255, 255, 12%)"
+              />
+              <Stack
+                px={{ base: '', md: '24px' }}
+                py={{ base: '', md: '24px' }}
+              >
+                <Button variant="unstyled">
+                  <Image
+                    src="/join-sfm.svg"
+                    alt="logo"
+                    w={{ base: '', md: '180px' }}
+                    pointerEvents="none"
+                    userSelect="none"
+                  />
+                </Button>
+              </Stack>
+            </Stack>
           </chakra.aside>
 
           {/* Topbar */}
-          <chakra.nav pos="relative" maxW="100%" gridArea="topbar">
+          <chakra.nav pos="relative" maxW="100%" gridArea="topbar" zIndex="2">
             <Stack
               direction="row"
-              py={{ base: '12px', md: '12px' }}
+              py={{ base: '12px', md: '16px' }}
               pl={{ base: '8px', md: '12px' }}
-              pr={{ base: '8px', lg: '14rem' }}
+              pr={{ base: '8px', lg: '15rem' }}
               pos="fixed"
-              justify="space-between"
+              justify="flex-end"
               w="full"
               align="center"
               bg="rgba(0, 0, 0, 0.8)"
@@ -102,7 +197,7 @@ const Layout = ({ children, ...props }: AppLayoutProps) => {
                 Connect
               </Button>
 
-              <Account
+              {/* <Account
                 user={props.user}
                 variant="ghost"
                 colorScheme="whiteAlpha"
@@ -110,7 +205,7 @@ const Layout = ({ children, ...props }: AppLayoutProps) => {
                 rounded="full"
                 leftIcon={<Avatar name={''} size="sm" />}
                 rightIcon={<i className="ri-more-fill" />}
-              />
+              /> */}
             </Stack>
           </chakra.nav>
 
@@ -134,8 +229,34 @@ const Layout = ({ children, ...props }: AppLayoutProps) => {
               backdropFilter="blur(27px)"
               rounded="12px"
               w="100%"
-              h="100px"
-            ></Stack>
+              h="auto"
+              px={{ base: '', md: '24px' }}
+              py={{ base: '', md: '16px' }}
+              direction="row"
+              spacing={{ base: '', md: '24px' }}
+            >
+              <Image
+                src="/images/profile.png"
+                bgColor="#282829"
+                rounded="10px"
+                boxShadow="5px 10px 24px rgba(0, 0, 0, 0.15)"
+                // rounded="16px"
+                boxSize="80px"
+                objectFit="contain"
+                alt="Image"
+              />
+              <Stack w="100%">
+                <Text>
+                  <chakra.span fontWeight="800" mr="2">
+                    01
+                  </chakra.span>
+                  Bitcoin, Crypto, and escape from the Boxed economy{' '}
+                </Text>
+                <audio controls src="" />
+              </Stack>
+
+              {/* media player */}
+            </Stack>
           </chakra.footer>
         </Grid>
       </AuthContext.Provider>
