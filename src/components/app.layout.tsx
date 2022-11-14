@@ -56,6 +56,11 @@ const Layout = ({ children, ...props }: AppLayoutProps) => {
             color: #fff;
             width: 100%;
           }
+
+          audio::-webkit-media-controls-current-time-display,
+          audio::-webkit-media-controls-time-remaining-display {
+            color: #fff;
+          }
         `}
       />
 
