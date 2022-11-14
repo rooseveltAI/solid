@@ -11,17 +11,22 @@ export default function RecordingsList({ audio }: RecordingsListProps) {
         <>
           <Stack py={{ base: '', md: 4 }} className="recordings-list">
             {recordings.map((record) => (
-              <Stack className="record" key={record.key}>
+              <Stack
+                className="record"
+                key={record.key}
+                direction="row"
+                align="center"
+              >
                 <audio controls src={record.audio} />
                 <Stack className="delete-button-container">
                   <IconButton
+                    variant="unstyled"
                     aria-label="Delete"
                     className="delete-button"
                     title="Delete this audio"
                     onClick={() => deleteAudio(record.key)}
-                  >
-                    <Text>Delete record</Text>
-                  </IconButton>
+                    icon={<i className="ri-more-2-fill" />}
+                  />
                 </Stack>
               </Stack>
             ))}
@@ -29,7 +34,7 @@ export default function RecordingsList({ audio }: RecordingsListProps) {
         </>
       ) : (
         <Stack className="no-records">
-          <chakra.span> You have no record or uploaded media yet</chakra.span>
+          {/* <chakra.span> You have no record or uploaded media yet</chakra.span> */}
         </Stack>
       )}
     </Stack>

@@ -130,8 +130,8 @@ export default extendTheme({
           color: '#fff',
           rounded: 'full',
           transition: '0.2s ease-out',
-          flexGrow: '1',
-          flexShrink: '0',
+          // flexGrow: '1',
+          // flexShrink: '0',
           backdropFilter: 'blur(12px)',
           _hover: {
             opacity: '0.9',

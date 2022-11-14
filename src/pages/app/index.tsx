@@ -7,7 +7,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     props: {},
     redirect: {
       permanent: true,
-      destination: '/app/session'
+      destination: '/app/explore'
     }
   }
 }

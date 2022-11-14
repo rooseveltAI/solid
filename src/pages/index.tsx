@@ -10,6 +10,7 @@ import {
 } from '@chakra-ui/react'
 import { Global, css } from '@emotion/react'
 import SignupModal from 'components/auth'
+import link from 'next/link'
 
 export default function Home() {
   return (
@@ -99,10 +100,10 @@ export default function Home() {
                 </chakra.strong>{' '}
                 media distribution
               </Heading>
-              <Text>
-                We change the world with uncensored alternative media <br /> —
-                Share the world as it is through your eyes and get fan support
-                via crypto
+              <Text w={{ base: '', md: '500px' }}>
+                Solid Fm is a decentralized alternative media network that lets
+                you share your podcast and get direct support from fans via
+                crypto.
               </Text>
             </Stack>
 
@@ -117,12 +118,15 @@ export default function Home() {
                 </Button>
               </SignupModal>
               <Button
-                variant="unstyled"
+                as={link}
+                href="/app/explore"
+                variant="secondary"
                 rounded="980px"
                 _hover={{ background: 'rgba(255, 255, 255, 8%)' }}
                 size="lg"
                 transition="all .2s ease-out"
                 px={{ base: '', md: '1.5rem' }}
+                alignSelf="flex-start"
               >
                 Explore
               </Button>
